@@ -1,6 +1,6 @@
 # Python exercises
 
-![CheckAll](https://github.com/DualbootPartnersLLC/ru-study-python/actions/workflows/main.yml/badge.svg)
+![CheckAll](https://github.com/Razorr1996/dbp-python-learn-challenge/actions/workflows/main.yml/badge.svg)
 
 ## Запуск проекта
 
