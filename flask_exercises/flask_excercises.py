@@ -30,17 +30,17 @@ class FlaskExercise:
 
     @staticmethod
     def configure_routes(app: Flask) -> None:
-        _name = "name"
+        _NAME = "name"
         database = dict()
 
         @app.route("/user", methods=["POST"])
         def create_user() -> Tuple[dict, int]:
             body = request.json
 
-            if _name not in body.keys():
+            if _NAME not in body.keys():
                 return {"errors": {"name": "This field is required"}}, 422
 
-            name = body[_name]
+            name = body[_NAME]
             database[name] = {"age": 27}
 
             return {"data": f"User {name} is created!"}, 201
@@ -59,10 +59,10 @@ class FlaskExercise:
 
             body = request.json
 
-            if _name not in body.keys():
+            if _NAME not in body.keys():
                 return {"errors": {"name": "This field is required"}}, 422
 
-            new_name = body[_name]
+            new_name = body[_NAME]
             data = database.pop(name)
             database[new_name] = data
 
