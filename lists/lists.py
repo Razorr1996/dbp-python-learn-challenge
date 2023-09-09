@@ -13,7 +13,11 @@ class ListExercise:
         if len(replace_list) == 0:
             return replace_list
 
-        max_element = max(replace_list)
+        max_element = replace_list[0]
+
+        for element in replace_list[1:]:
+            if element > max_element:
+                max_element = element
 
         for index, element in enumerate(replace_list):
             if element > 0:
