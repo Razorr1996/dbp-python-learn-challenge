@@ -15,20 +15,20 @@ class MapExercise:
         """
         filtered_movies = filter(
             lambda m: MapExercise.get_movie_rating_kinopoisk(m) > 0
-            and len(MapExercise.get_movie_countries(m)) >= 2,
+            and MapExercise.count_movie_countries(m) >= 2,
             list_of_movies,
         )
         rating_movies = list(map(MapExercise.get_movie_rating_kinopoisk, filtered_movies))
         return sum(rating_movies) / len(rating_movies)
 
     @staticmethod
-    def get_movie_countries(movie: dict) -> list[str]:
+    def count_movie_countries(movie: dict) -> int:
         countries_str = movie.get("country", "")
 
-        countries = countries_str.split(",")
-        countries = map(str.strip, countries)
+        if countries_str == "":
+            return 0
 
-        return list(countries)
+        return countries_str.count(",") + 1
 
     @staticmethod
     def chars_count(list_of_movies: list[dict], rating: Union[float, int]) -> int:
